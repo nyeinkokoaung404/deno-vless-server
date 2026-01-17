@@ -23,7 +23,7 @@ Deno.serve(async (request: Request) => {
           status: 200,
           headers: { 'Content-Type': 'text/html;charset=utf-8' },
         });
-      case `/${userID}`: {
+      case `/config`: {
         const vlessConfig = getVLESSConfig(userID, url.hostname, url.port || (url.protocol === 'https:' ? 443 : 80));
         return new Response(generateConfigHTML(vlessConfig, userID), {
           status: 200,
